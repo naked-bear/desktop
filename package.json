@@ -1,0 +1,19 @@
+{
+  "name": "desktop",
+  "version": "1.0.0",
+  "description": "Desktop application for NakedBear",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/naked-bear/desktop.git"
+  },
+  "author": "Md Islam",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/naked-bear/desktop/issues"
+  },
+  "homepage": "https://github.com/naked-bear/desktop#readme"
+}
