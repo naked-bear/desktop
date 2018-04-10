@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/naked-bear/desktop/issues"
   },
-  "homepage": "https://github.com/naked-bear/desktop#readme"
+  "homepage": "https://github.com/naked-bear/desktop#readme",
+  "dependencies": {
+    "nedb": "^1.8.0"
+  }
 }
