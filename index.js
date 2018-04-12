@@ -1,12 +1,12 @@
+'use strict';
+
 const electron = require('electron');
 const {app, BrowserWindow} = electron;
-const SessionOperations = require('./templates/js/crud_session');
-
-const viewsDir = '/templates/views/';
 
 let win;
 
-app.on('ready', () => {
+
+function build(){
 
     win = new BrowserWindow({
         width: 800,
@@ -17,12 +17,28 @@ app.on('ready', () => {
         icon: 'templates/images/nakedbear.png'
     });
 
+    win.loadURL('file://' + __dirname + '/templates/index.html');
 
-    SessionOperations.loadSession().then(function (session) {
-        win.loadURL('file://' + __dirname + viewsDir + 'index.html');
-    }).catch(function (err) {
-        win.loadURL('file://' + __dirname + viewsDir + 'noauth.html');
+
+    win.on('closed', function() {
+        win = null;
     });
 
+}
 
+
+
+app.on('ready', () => build());
+
+
+app.on('window-all-closed', function () {
+    if (process.platform !== 'darwin') {
+        app.quit();
+    }
+});
+
+app.on('activate', function () {
+    if (win === null) {
+        build();
+    }
 });
