@@ -16,18 +16,17 @@ const styles = {
         position: 'absolute',
         left: '50%',
         top: '50%',
-        marginLeft: '-25px',
-        marginTop: '-25px',
-        width: '50px'
+        marginLeft: '-60px',
+        marginTop: '-60px'
     }
 };
 
 const Loading = (props) => {
     return (
         props.isLoading ?
-        <div style={styles.container}>
-            <img src="./images/loading.gif" style={styles.img} width="50"/>
-        </div> : <span/>
+            <div style={styles.container}>
+                <div style={styles.img} className="loader"/>
+            </div> : <span/>
     )
 };
 

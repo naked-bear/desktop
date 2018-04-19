@@ -23,6 +23,7 @@
     "random-words": "^1.0.0",
     "react-copy-to-clipboard": "^5.0.1",
     "react-sidebar": "^2.3.2",
+    "react-spinkit": "^3.0.0",
     "react-sticky-table": "^2.0.3",
     "react-tooltip": "^3.5.0"
   },
