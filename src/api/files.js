@@ -7,7 +7,7 @@ module.exports = {
 
             filesDB.find({}, function (err, files) {
                 if (err) {
-                    reject('failed to load files');
+                    reject(err);
                 }
                 resolve(files);
             });
@@ -20,7 +20,7 @@ module.exports = {
             filesDB.insert(newFiles, function (err, files) {
 
                 if(err){
-                    reject('failed to add files');
+                    reject(err);
                 }
 
                 resolve(files);
@@ -34,7 +34,7 @@ module.exports = {
             filesDB.remove({ _id: fileId }, {}, function (err, num) {
 
                 if(err){
-                    reject('failed to remove file')
+                    reject(err)
                 }
 
                 resolve(num);
@@ -48,7 +48,7 @@ module.exports = {
             filesDB.remove({}, { multi: true }, function (err, num) {
 
                 if(err){
-                    reject('failed to remove files')
+                    reject(err)
                 }
 
                 resolve(num);

@@ -6,6 +6,7 @@ class Signup extends React.Component {
         this.signup = this.signup.bind(this);
 
         this.state = {
+            isLoading: '',
             fullName: '',
             email: '',
             username: '',
@@ -47,13 +48,29 @@ class Signup extends React.Component {
                             <input className="input" name="confirm" value={this.state.confirmPassword} onChange={(event) => this.setState({confirmPassword: event.target.value})} type="password" placeholder="●●●●●●●●●●" />
                         </div>
                     </div>
-                    <a id="signupBtn" onClick={() => this.signup} className="button purple-btn is-medium is-fullwidth">Sign Up</a>
+                    <a id="signupBtn" onClick={() => this.signup} className={"button purple-btn is-medium is-fullwidth " + this.state.isLoading}>Sign Up</a>
                 </div>
                 <a onClick={() => this.props.navigateTo(0)} className="button is-white is-medium is-fullwidth button-small">Login</a>
             </div>
         )
     }
     signup(){
+        this.setState({
+            isLoading: 'is-loading'
+        }, () => {
+            let response = auth.signup(this.state.fullName, this.state.username, this.state.email, this.state.password, this.state.confirmPassword);
+            if(response.status) {
+                this.setState({
+                    fullName: '',
+                    username: '',
+                    email: '',
+                    password: '',
+                    confirmPassword: ''
+                });
+            }
+
+            this.props.setStatusMessage(response.message);
+        });
 
     }
 }

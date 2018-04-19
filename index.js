@@ -9,13 +9,15 @@ let win;
 function build(){
 
     win = new BrowserWindow({
-        width: 800,
-        height: 640,
-        minWidth: 800,
-        minHeight: 640,
+        width: 1280,
+        height: 960,
+        minWidth: 1280,
+        minHeight: 960,
         title: "NakedBear - Direct File Sharing",
         icon: 'templates/images/nakedbear.png'
     });
+
+    // win.setMenu(null);
 
     win.loadURL('file://' + __dirname + '/templates/index.html');
 

@@ -2,7 +2,7 @@ html,body {
     height: 100%;
     margin: 0;
     overflow: hidden;
-    overflow-y: auto;
+    font-size: 0.9rem;
 }
 
 ::selection {
@@ -34,10 +34,23 @@ html,body {
     color: #ffffff;
 }
 
+.spacing-sm {
+    padding: 4px;
+}
+
+.spacing-lg{
+    padding:16px;
+}
+
+.box {
+    padding-bottom: 48px;
+}
 
 .wrapper-bottom {
+    overflow: hidden;
     padding-bottom:3rem;
 }
+
 
 body::-webkit-scrollbar {
     width: 0.5em;
@@ -194,3 +207,87 @@ h5.no-margins {
     margin-top: 1em;
     max-width: 350px;
 }
+
+.status {
+    color:red;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+
+.table th, .table td {
+    font-size: 0.9rem;
+}
+
+
+.spacing-none {
+    margin:0;
+    padding:0;
+}
+
+
+.search {
+    background-color: transparent;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+}
+
+
+/* Table Stuff */
+.top{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    margin:0;
+    padding:0;
+}
+.pane {
+    position:absolute;
+    width:100%;
+    overflow:hidden;
+}
+.fill {
+    height:auto;
+    overflow:auto;
+}
+.middle {
+    top:8px;
+    bottom:64px;
+}
+.table-head {
+    height: 40px;
+    top:0;
+}
+.table-body {
+    top:40px;
+    bottom:64px;
+}
+
+.col1 {
+    width:35%;
+}
+
+.col2 {
+    width:10%;
+}
+
+.col3 {
+    width: 35%;
+}
+
+.col4 {
+    width: 10%;
+}
+
+.col5 {
+    width: 10%;
+    padding-right: 32px;
+}
+
+
+
+/* Fix for Safari scrollbars (also styles Chrome scrollbars) */
+.fill::-webkit-scrollbar {-webkit-appearance: none;width: 10px;}
+.fill::-webkit-scrollbar-track {background-color: rgba(0,0,0, .3);border-radius: 0px;}
+.fill::-webkit-scrollbar-thumb {border-radius: 0px; background-color: rgba(255,255,255, .4);}

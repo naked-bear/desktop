@@ -8,12 +8,15 @@ module.exports = {
         twitter: 'https://twitter.com/mdni007'
     },
     api: {
-        base: 'https://api.nakedbear.io',
+        base: '/api',
         auth: {
             base: '/auth',
             login: '/login',
             signup: '/aignup',
             forgot: '/forgot'
+        },
+        checkout: {
+            base: '/checkout'
         }
-    }
+    },
 };

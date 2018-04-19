@@ -10,16 +10,19 @@ class NoAuth extends React.Component {
         super(props);
 
         this.navigateTo = this.navigateTo.bind(this);
+        this.switchToHome = this.switchToHome.bind(this);
+        this.setStatusMessage = this.setStatusMessage.bind(this);
 
         let routes = [
-            <Login navigateTo={this.navigateTo} />,
-            <Signup navigateTo={this.navigateTo} />,
-            <Forgot navigateTo={this.navigateTo} />
+            <Login navigateTo={this.navigateTo} switchToHome={this.switchToHome} setStatusMessage={this.setStatusMessage} />,
+            <Signup navigateTo={this.navigateTo} setStatusMessage={this.setStatusMessage} />,
+            <Forgot navigateTo={this.navigateTo} setStatusMessage={this.setStatusMessage} />
         ];
 
         this.state = {
             routes: routes,
-            route: routes[0]
+            route: routes[0],
+            statusMessage: ''
         }
     }
     render() {
@@ -39,6 +42,7 @@ class NoAuth extends React.Component {
                                     <h5 className="no-margins is-purple">Direct File Sharing</h5>
                                 </div>
                                 <center>
+                                    <div className="status">{this.state.statusMessage}</div>
                                     {this.state.route}
                                 </center>
                             </div>
@@ -50,8 +54,17 @@ class NoAuth extends React.Component {
     }
     navigateTo(route){
         this.setState({
+            statusMessage: '',
             route: this.state.routes[route]
         });
+    }
+    switchToHome(session){
+        this.props.switchToHome(session);
+    }
+    setStatusMessage(message){
+        this.setState({
+            statusMessage: message
+        })
     }
 }
 
